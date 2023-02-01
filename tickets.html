@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            background-image:url("https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-g12si7619ajbsa0kg5q6uuenj6-20181027003411.Medi.jpeg");
+            background-size: cover;
+            height:500px;
+            padding:100px
+        }
+        label{
+            color:rgb(128, 87, 97);
+        }
+        .sub{
+            background-color:rgb(167, 107, 95);
+            color:azure;
+            padding:10px;
+            width:100px;
+        }
+        .can{
+            background-color:rgb(38, 49, 206);
+            color:azure;
+            padding:10px;
+            width:100px;
+        }
+        select{
+            padding:10px;
+            width:200px;
+            
+        }
+        .mod{
+            padding:8px;
+            width:200px;
+            border-radius:12px;
+        }
+        input{
+            text-align:center;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+<div class="card" >
+    <h1 style="color:rgb(170, 25, 25)" class name="broadway" >BUS TICKET RESERVATION</h1>
+    <table cellspacing="25">
+    <tr>
+        <td>
+    <label>NAME</label>
+    </td>
+    <td>
+    <input class="mod" type="text" id="name" placeholder="Enter the name">
+    </td>
+    </tr>
+
+    <tr>
+        <td>
+    <label>DESTINATION</label>
+        </td>
+        <td>
+    <select id="there">
+        <option value="0"></option>
+        <option value="500">Kukatpally</option>
+        <option value="100">chikkadpally</option>
+        <option value="650">madhapur</option>
+        <option value="900">hitec city</option>
+        <option value="800">jubilee hills</option>
+    </select>
+    </td>
+    </tr>
+    
+    <tr>
+        <td>
+    <label>TICKETS</label>
+        </td>
+        <td>
+    <input class="mod" type="text" id="ticket" placeholder="No. of Tickets">
+        </td>
+        </tr>
+        </table>
+    <button class="sub"onclick="bookmovie()">Submit</button>
+    <button class="can" onclick="cancelmovie()">Cancel</button>
+    <p style="color:rgb(255, 113, 47)" id="res">Statment : </p>
+    
+</div>
+<script>
+function bookmovie(){
+    var namep=document.getElementById("name").value
+    var destinationp=document.getElementById("there").value
+    var ticketp=parseInt(document.getElementById("ticket").value)
+    var cost;
+    var km=5;
+    let eachkm=parseInt(km*destinationp)
+    cost=(eachkm*ticketp)
+    var gst=((cost*18)/100)
+    let tc=cost+gst
+    document.getElementById("res").innerHTML= namep+" "+"Your movie ticket total charges along with GST is " + tc
+}
+function cancelmovie(){
+    alert("ticket has been Cancelled :(")
+}
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

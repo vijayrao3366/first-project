@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .taskbar{
+            border:2px solid black;
+            text-align:center;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="taskbar">
+        <h1>FD CALCULATOR</h1>
+        <table align="center" cellspacing="15">
+        <tr>
+            <td>
+                <label>Name</label>
+            </td>
+            <td>
+                <input type="text" placeholder="Enter the name" id="username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Amount</label>
+                </td>
+                <td>
+              <input type="number" placeholder="Depositing amount" id="amount">
+              </td>
+              </tr>
+              <tr>
+                  <td>
+                    <label>Term</label>
+                    </td>
+
+
+                    <td>
+                <select id="tenure"> 
+                    <option value="3">3 YEARS</option>
+                        <option value="6">6 YEARS</option>
+                            <option value="9">9 YEARS</option>
+                                <option value="12">12 YEARS</option>
+                                <option value="15">15 YEARS</option>
+                   
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>YEAR OF BIRTH</label>
+            </td>
+            <td>
+                <input id="age" type="text" placeholder="Enter Your Yob">
+            </td>
+        </tr>
+        </table>
+        <button onclick="yob()">submit</button>
+        <button>Cancel</button>
+        <p id="res">Statement:</p> 
+    </div>
+
+    <script>
+        let preyear=2023
+        function yob(){
+            var username=document.getElementById("username").value
+            var amount=parseInt(document.getElementById("amount").value)
+            var term=document.getElementById("tenure").value
+        var year=document.getElementById("age").value
+        var age=2023-year
+        var rate;
+        if(age<40){
+            rate=5;
+        }    
+        else if(age>40&&age<60)
+        {
+            rate=6;
+        }
+        else{
+            rate=8;
+        }
+
+        var intrst=(amount*term*rate)/100;
+        var total=amount+intrst
+        document.getElementById("res").innerHTML=username+"your maturity amount is"+total
+    
+        }
+    </script>
+    
+</body>
+</html>
